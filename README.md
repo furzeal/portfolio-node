@@ -17,7 +17,7 @@
 4. ```npm i```
 6. ```gulp``` 
 
-## Update by Maxim Shatalov 11.02.2016
+## Updated by Maxim Shatalov 11.02.2016
 1. ```Reinstalled jquery with -S flag```
 2. ```Added copy:font task```
 3. ```Installed gulp.spritesmith plugin```
