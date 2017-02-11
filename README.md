@@ -1,14 +1,19 @@
-# Учебная сборка Loftschool
+# Loftschool gulp build
+## Maxim Shatalov
 
-> Сборка работает на gulp версии 4.0. 
+> Assembly is designed for gulp#4.0. 
+### Preparing
+ 1. ```make sure that your gulp isn't installed globally```
+ 2. ```if needed uninstall gulp: npm rm -g gulp```
 
-#### Для начала работы
+
+#### Getting started
 
 1. ```clone this repo```
 2. ```cd path/to/...```
 3. ```npm install gulpjs/gulp-cli -g```  
-> Установка последней версии Gulp CLI tools глобально (подробнее - [GitHub](https://github.com/gulpjs/gulp/blob/4.0/docs/getting-started.md) )
+> Additional information: [GitHub](https://github.com/gulpjs/gulp/blob/4.0/docs/getting-started.md)
 
-4. ```npm install```
-6. ```run gulp``` 
+4. ```npm i```
+6. ```gulp``` 
 
