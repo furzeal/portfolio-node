@@ -1,0 +1,112 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$fb-name: 'fb';
+$fb-x: 0px;
+$fb-y: 0px;
+$fb-offset-x: 0px;
+$fb-offset-y: 0px;
+$fb-width: 69px;
+$fb-height: 69px;
+$fb-total-width: 138px;
+$fb-total-height: 138px;
+$fb-image: 'sprite.png';
+$fb: (0px, 0px, 0px, 0px, 69px, 69px, 138px, 138px, 'sprite.png', 'fb', );
+$in-name: 'in';
+$in-x: 69px;
+$in-y: 0px;
+$in-offset-x: -69px;
+$in-offset-y: 0px;
+$in-width: 69px;
+$in-height: 69px;
+$in-total-width: 138px;
+$in-total-height: 138px;
+$in-image: 'sprite.png';
+$in: (69px, 0px, -69px, 0px, 69px, 69px, 138px, 138px, 'sprite.png', 'in', );
+$vk-name: 'vk';
+$vk-x: 0px;
+$vk-y: 69px;
+$vk-offset-x: 0px;
+$vk-offset-y: -69px;
+$vk-width: 69px;
+$vk-height: 69px;
+$vk-total-width: 138px;
+$vk-total-height: 138px;
+$vk-image: 'sprite.png';
+$vk: (0px, 69px, 0px, -69px, 69px, 69px, 138px, 138px, 'sprite.png', 'vk', );
+$spritesheet-width: 138px;
+$spritesheet-height: 138px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($fb, $in, $vk, );
+$spritesheet: (138px, 138px, 'sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
