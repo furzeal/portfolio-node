@@ -1,0 +1,109 @@
+/* Roboto */
+
+@font-face {
+  font-family: 'robotobold';
+  src: url('/assets/fonts/roboto-bold-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold_italic';
+  src: url('/assets/fonts/roboto-bolditalic-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-bolditalic-webfont.svg#robotobold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoitalic';
+  src: url('/assets/fonts/roboto-italic-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-italic-webfont.svg#robotoitalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotolight';
+  src: url('/assets/fonts/roboto-light-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-light-webfont.svg#robotolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotolight_italic';
+  src: url('/assets/fonts/roboto-lightitalic-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-lightitalic-webfont.svg#robotolight_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium';
+  src: url('/assets/fonts/roboto-medium-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-medium-webfont.svg#robotomedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium_italic';
+  src: url('/assets/fonts/roboto-mediumitalic-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-mediumitalic-webfont.svg#robotomedium_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoregular';
+  src: url('/assets/fonts/roboto-regular-webfont.woff') format('woff'),
+  url('/assets/fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Sansus */
+
+@font-face {
+  font-family: 'sansus_webissimoregular';
+  src: url('/assets/fonts/sansus-webissimo-regular-webfont.woff') format('woff'),
+  url('/assets/fonts/sansus-webissimo-regular-webfont.svg#sansus_webissimoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin roboto($style:regular) {
+  @if $style==regular {
+    font-family: 'robotoregular', sans-serif;
+  }
+  @if $style==bold {
+    font-family: 'robotobold', sans-serif;
+  }
+  @if $style==medium {
+    font-family: 'robotomedium', sans-serif;
+  }
+  @if $style==light {
+    font-family: 'robotolight', sans-serif;
+  }
+  @if $style==italic {
+    font-family: 'robotoitalic', sans-serif;
+  }
+  @if $style==bold-italic {
+    font-family: 'robotobold_italic', sans-serif;
+  }
+  @if $style==medium-italic {
+    font-family: 'robotomedium_italic', sans-serif;
+  }
+  @if $style==light-italic {
+    font-family: 'robotolight_italic', sans-serif;
+  }
+}
+
+@mixin sansus($style:regular) {
+  @if $style==regular {
+    font-family: 'sansus_webissimoregular', sans-serif;
+  }
+}
+

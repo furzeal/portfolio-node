@@ -1,0 +1,30 @@
+// MIXINS
+
+.socials__link,
+.socials__link:visited {
+  @include circle(32px);
+  display: block;
+  text-align: right;
+  margin-left: 19px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+  color: #cccdd9;
+  &:hover {
+    color: darken(#cccdd9, 30%);
+  }
+  &:before {
+    //for vertical align
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+  }
+}
+
+.fa.social__icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+}

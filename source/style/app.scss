@@ -1,6 +1,30 @@
-body {
-  margin: 0;
-}
+// COLORS
+$orange: #fca211;
+$dred:#a4151a;
+$gray:#747474;
 
+// DIMENSIONS
+//$container-width:940px;
+//$width:$container-width+20;
+$footer-height:50px;
+$padding-bottom:21px;
+$header-content-height:66px;
+
+
+// template
+@import "template/mixins";
+@import "template/adjustment";
+
+// fonts
+@import 'common/fonts';
+@import 'common/font-awesome/font-awesome';
+
+// sprites
 @import 'common/sprite';
-@import 'common/greating';
+
+// common
+@import 'common/common';
+
+// pages
+@import 'pages/greating';
+
