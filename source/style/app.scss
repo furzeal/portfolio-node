@@ -1,14 +1,24 @@
 // COLORS
+$white: #fff;
 $orange: #fca211;
 $dred:#a4151a;
-$gray:#747474;
+$gray:#474b57;
+$dark-gray:#373e42;
+$blue:#004cd1;
+$footer-gray:#1c1f29;
+$footer-blue:#083c96;
+$map-blue:#4369aa;
+$dark-blue:#0d1120;
+$beige:#faf8f0;
+
 
 // DIMENSIONS
 //$container-width:940px;
 //$width:$container-width+20;
-$footer-height:50px;
-$padding-bottom:21px;
-$header-content-height:66px;
+//$footer-height:50px;
+//$padding-bottom:21px;
+//$header-content-height:66px;
+$font-size:16px;
 
 
 // template
@@ -22,9 +32,23 @@ $header-content-height:66px;
 // sprites
 @import 'common/sprite';
 
-// common
-@import 'common/common';
+// components
+@import 'components/_developer';
+@import 'components/_contacts';
+@import 'components/_nav';
+@import 'components/_socials';
+@import 'components/_user';
+@import 'components/_menu-icon';
+@import 'components/_section';
+@import 'components/_footer';
+@import 'components/_slider';
+@import 'components/_form';
+@import 'components/_frame';
+
 
 // pages
-@import 'pages/greating';
+@import 'pages/about';
+@import 'pages/works';
+@import 'pages/blog';
+@import 'pages/index';
 

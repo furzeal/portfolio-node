@@ -1,0 +1,24 @@
+include ../mixins/_svg
+-
+    var icons={
+        vk: {
+            link:'#',
+            target:'_blank',
+            icon:'vk'
+        },
+        github: {
+            link:'#',
+            target:'_blank',
+            icon:'github'
+        },
+        linkedin: {
+            link:'#',
+            target:'_blank',
+            icon:'in'
+        }
+    }
+ul.c-socials
+    each icon in icons
+        li.c-socials__item
+            a.c-socials__link(href=`${icon.link}` target=`${icon.target}`)
+                +svg('c-socials__icon',`${icon.icon}`)

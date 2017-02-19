@@ -1,0 +1,44 @@
+.c-frame {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-nav-panel {
+
+}
+
+.c-nav-panel__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-nav-panel__button {
+  flex: 1;
+  background: rgba($blue, 0.45);
+  transition: 0.3s;
+  &:hover {
+    background: rgba($blue, 0.75);
+  }
+}
+
+.c-nav-panel__button_notfirst {
+  position: relative;
+  &:before {
+    content: '';
+    width: 1px;
+    position: absolute;
+    border-left: 1px solid rgba($white,0.2);
+    display: block;
+    height: 100%;
+    left: 0;
+  }
+}
+
+.c-nav-panel__link {
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  color: $white;
+  text-align: center;
+}

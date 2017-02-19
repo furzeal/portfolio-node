@@ -1,0 +1,32 @@
+.l-welcome {
+  background: url(/assets/img/night_bg.jpg) no-repeat top/cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.l-welcome__frame-wrapper{
+  width:380px;
+  margin:auto;
+  background: rgba(#1c1f29,0.5);
+}
+
+
+.l-welcome__auth-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 12px 25px;
+  text-decoration: none;
+  display: block;
+  border: 1px solid $white;
+  color: $white;
+  &:hover {
+    background: #000;
+  }
+}
+
+.l-welcome__copyright {
+  height: 3.5vh;
+  margin:0 auto;
+}

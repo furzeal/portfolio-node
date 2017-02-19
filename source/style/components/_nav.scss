@@ -1,0 +1,16 @@
+.c-menu {
+}
+
+.c-menu-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-menu-list__item {
+}
+
+.c-menu-list__link {
+  text-decoration: none;
+  @include roboto(medium);
+  color: $white;
+}

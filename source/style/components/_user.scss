@@ -1,0 +1,21 @@
+.c-user{
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+  z-index: 500;
+  color: $white;
+}
+.c-user__pic{
+  @include circle(145px);
+  margin:0 auto 14px;
+}
+.c-user__pic_blog{
+  margin: 0 auto 6px;
+}
+.c-user__name {
+  @include roboto(medium);
+  font-size: 35px;
+}
+
+.c-user__occupation {
+}

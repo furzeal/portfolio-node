@@ -1,0 +1,33 @@
+-
+    var contacts={
+        skype: {
+            link:'skype:maxim.shatalov04',
+            target:'_blank',
+            icon:'skype_n',
+            content:'maxim.shatalov04'
+        },
+        email: {
+            link:'mailto:shatalov04@gmail.com',
+            target:'_blank',
+            icon:'envelope_n',
+            content:'shatalov04@gmail.com'
+        },
+        phone: {
+            link:'tel:+79162142371',
+            target:'_blank',
+            icon:'phone_n',
+            content:'+7 916 214 23 71'
+        },
+        address: {
+            link:'https://yandex.ru/maps/10740/mytischi/?ll=37.738442%2C55.901499&z=17&mode=whatshere&whatshere%5Bpoint%5D=37.738507%2C55.900830&whatshere%5Bzoom%5D=17',
+            target:'_blank',
+            icon:'map_n',
+            content:'г.Мытищи, Октябрьский проспект, 6А'
+        }
+    }
+ul.c-contacts-list
+    each contact in contacts
+        li.c-contacts__item
+            a.c-contacts__link(href=`${contact.link}` target=`${contact.target}`)
+                +svg('c-contacts__icon',`${contact.icon}`)
+                .c-contacts__link-content #{contact.content}

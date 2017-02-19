@@ -1,0 +1,24 @@
+-
+    var menuItems={
+        works: {
+            link:'#',
+            title:'Мои работы',
+        },
+        about: {
+            link:'#',
+            title:'Обо мне',
+        },
+        blog: {
+            link:'#',
+            title:'Блог',
+        },
+        auth: {
+            link:'#',
+            title:'Авторизация',
+        }
+    }
+nav.c-menu
+    ul.c-menu-list
+        each item in menuItems
+            li.c-menu-list__item
+                a.c-menu-list__link(href=`${item.link}`) #{item.title}

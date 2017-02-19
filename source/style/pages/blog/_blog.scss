@@ -1,0 +1,61 @@
+.l-blog {
+  display: flex;
+  flex-direction: column;
+  background: $beige;
+}
+
+.c-blog {
+  display: flex;
+  padding-top: 45px;
+}
+
+.c-blog-sidebar {
+  flex: 1;
+}
+
+.c-blog-sidebar__list {
+
+}
+
+.c-blog-sidebar__item {
+  text-align: right;
+
+}
+
+.c-blog-sidebar__link {
+  text-decoration: none;
+  padding: 20px;
+  color: $gray;
+  display: block;
+}
+
+.c-articles {
+  flex: 3;
+  padding: 10px 100px;
+}
+
+.c-articles__list {
+}
+
+.c-article {
+  &:after {
+    content: "";
+    width: 100%;
+    border-bottom: 5px solid rgba($dark-gray, 0.07); // СДЕЛАТЬ ПОЛОСКУ!
+    padding-top: 70px;
+    margin-bottom: 70px;
+    display: block;
+  }
+}
+
+.c-article__title {
+  @extend .c-block-title
+}
+
+.c-article__date {
+  color: rgba($footer-blue, 0.7);
+  margin-bottom: 25px;
+}
+
+.c-article__content {
+}

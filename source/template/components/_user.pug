@@ -1,0 +1,10 @@
+.c-user
+    case userBlockCase
+        when 'blog'
+            img.c-user__pic.c-user__pic_blog(src='/assets/img/avatar.jpg')
+            .c-section-title.c-section-title_blog Блог
+            .c-user__occupation Cтатьи, которые я написал
+        default
+            img.c-user__pic(src='/assets/img/avatar.jpg')
+            .c-user__name Максим Шаталов
+            .c-user__occupation Личный сайт веб-разработчика

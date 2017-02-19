@@ -1,0 +1,14 @@
+.l-works {
+  flex-direction: column;
+}
+
+.l-works__title {
+  height: 20vh;
+  background: rgba($dark-blue,0.85);
+  width: 100%;
+  display: flex;
+}
+
+.l-works-title__triangles {
+  position: absolute;
+}

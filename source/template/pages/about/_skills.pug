@@ -1,0 +1,18 @@
+-
+    var skills={
+    Frontend:['HTML5','CSS3','JavaScript & jQuery','WPF'],
+    Backend:['PHP & Laravel','mySQL','Node.js & npm','Mongo.db','C#','SQL Server'],
+    Workflow:['Git','Gulp','Webpack','Artisan']
+    }
+
+.c-skills
+    ul.c-skills-group
+        li.c-skills-group__item
+            each skillGroup, key in skills
+                .c-skills-group__title= key
+                ul.c-skills-list
+                    each value in skillGroup
+                        li.c-skills-list__item
+                            .c-skill
+                                svg.c-skill__circle
+                                .c-skill__title= value

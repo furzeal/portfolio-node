@@ -1,0 +1,40 @@
+
+
+.c-socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 120px;
+}
+
+.c-socials__item {
+  width: 30px;
+  height: 26px;
+}
+
+.c-socials__link {
+}
+
+.c-socials__icon {
+  width: 30px;
+  height: 26px;
+  fill: $white;
+  transition: 0.3s;
+  &:hover {
+    fill: $blue;
+  }
+}
+
+.c-socials-wrapper {
+
+}
+
+.c-socials-wrapper_welcome {
+  margin: 35px auto;
+  & .c-socials__icon {
+    fill: rgba($blue, 0.65);
+    &:hover {
+      fill: $blue;
+    }
+  }
+}

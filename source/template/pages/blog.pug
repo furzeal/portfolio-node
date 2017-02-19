@@ -1,13 +1,13 @@
 extends ../layouts/_default
 
+block variables
+    - var userBlockCase = 'blog';
+
 block section1
     include ../components/_developer
 
 block section2
-    include ./about/_about
-
-block section3
-    include ./about/_map
+    include ./blog/_blog
 
 block svg
     svg.about__svg.hide
@@ -17,11 +17,11 @@ block svg
                 stroke-width:0;
             }
             .stars__circle2 {
-                fill: #004cd1;
+                fill: #fff;
                 stroke-width: 0;
             }
             .stars__circle3 {
-                fill: #474b57;
+                fill: #fff;
                 stroke-width: 0;
             }
         symbol(id="stars1" viewBox="0 0 186.9 111")
@@ -41,17 +41,19 @@ block svg
             circle(class="stars__circle" cx="111.1" cy="23.4" r="2.8")
             path(d="M123.2 79l58.5 14.2-5.4-66.1z")
             path(d="M88.1 73.6l48.5-68.4 45.1 88-70.4-70.3zm35.1 5.4l53.1-51.9")
+
     svg.about__svg.hide
-        symbol(viewBox="0 0 184.4 119.89" id="stars2")
-            polyline(points="105.69 74.32 69.49 23.82 180.09 47.32 142.99 4.32 69.49 23.82 4.29 105.72 51.09 76.42 105.69 74.32 163.99 115.62")
-            line(x1="142.99" y1="4.32" x2="163.99" y2="115.62")
-            circle(class="stars__circle2" cx="4.29" cy="105.72" r="4.29")
-            circle(class="stars__circle2" cx="51.09" cy="76.42" r="1.87")
-            circle(class="stars__circle2" cx="105.69" cy="74.32" r="4.78")
-            circle(class="stars__circle2" cx="163.99" cy="115.62" r="4.27")
-            circle(class="stars__circle2" cx="180.09" cy="47.32" r="4.31")
-            circle(class="stars__circle2" cx="142.99" cy="4.32" r="4.32")
-            circle(class="stars__circle2" cx="69.49" cy="23.82" r="2.79")
+        svg.about__svg.hide
+            symbol(viewBox="0 0 184.4 119.89" id="stars2")
+                polyline(points="105.69 74.32 69.49 23.82 180.09 47.32 142.99 4.32 69.49 23.82 4.29 105.72 51.09 76.42 105.69 74.32 163.99 115.62")
+                line(x1="142.99" y1="4.32" x2="163.99" y2="115.62")
+                circle(class="stars__circle2" cx="4.29" cy="105.72" r="4.29")
+                circle(class="stars__circle2" cx="51.09" cy="76.42" r="1.87")
+                circle(class="stars__circle2" cx="105.69" cy="74.32" r="4.78")
+                circle(class="stars__circle2" cx="163.99" cy="115.62" r="4.27")
+                circle(class="stars__circle2" cx="180.09" cy="47.32" r="4.31")
+                circle(class="stars__circle2" cx="142.99" cy="4.32" r="4.32")
+                circle(class="stars__circle2" cx="69.49" cy="23.82" r="2.79")
 
     svg.about__svg.hide
         symbol(viewBox="0 0 103.03 124.03" id="stars3")

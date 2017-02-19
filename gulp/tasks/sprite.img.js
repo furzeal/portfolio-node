@@ -15,7 +15,7 @@ module.exports = function () {
 
     // Pipe SCSS stream onto disk
     var cssStream = spriteData.css
-      .pipe($.gulp.dest('./source/style/common'));
+      .pipe($.gulp.dest('./source/style/components'));
 
     // Return a merged stream to handle both `end` events
     return $.merge(imgStream, cssStream);

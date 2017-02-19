@@ -1,0 +1,14 @@
+section.l-section.l-developer
+    header.l-developer__top
+        .l-developer__socials-wrapper
+            include _socials
+        include _menu-icon
+    .l-developer__bg
+    .l-developer__container
+        //+svg('c-developer__bg',`stars1`)
+        svg(class='c-developer__bg')
+            use(xlink:href=`#stars1`)
+        block user
+            include _user
+    a.c-section__btn
+        +svg('c-section__icon',`arrow_down`)

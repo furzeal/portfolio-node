@@ -1,0 +1,46 @@
+.c-form-container{
+  width: 380px;
+  margin: 0 auto;
+  background: rgba($white,0.05);
+}
+.c-form-container_yells{}
+
+.c-form {
+  padding: 35px 20px 10px 20px;
+
+}
+
+
+.c-form__input {
+  background: rgba($white,0.07);
+  color: $white;
+  margin: 10px auto;
+  padding: 15px;
+  width: 100%;
+  border:none;
+  outline:none;
+}
+
+.c-form__input_textarea {
+  height: 150px;
+}
+
+.c-form__panel {
+  display: flex;
+}
+
+.c-form__button {
+  flex: 1;
+  color: $white;
+  border:none;
+  outline:none;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+}
+
+.c-form__button_highlighted {
+  background: $blue;
+}
+
