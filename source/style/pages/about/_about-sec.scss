@@ -4,33 +4,28 @@
 .l-about__col {
   position: relative;
   width: 50%;
-  background: #fff;
 }
 
 .l-about__col_left {
-  padding: 0 80px;
+  background: $beige;
 }
 
 .l-about__col_right {
-  padding: 10px 10px 0 40px;
-
+  background: $bg-white;
 }
 
-.l-about__triangle {
-  position: absolute;
+.l-about__content {
+  &_left {
+    padding: 0 80px;
+  }
+  &_right {
+    padding: 10px 10px 0 40px;
+  }
 }
 
-.l-about__triangle_left {
-
-}
-
-.l-about__triangle_right {
-
-}
 
 .c-about {
   margin-top: 10px;
-
 }
 
 .c-about__pic {

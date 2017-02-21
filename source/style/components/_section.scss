@@ -19,6 +19,7 @@
     stroke: $white;
   }
 }
+
 .c-section-title-container_yells {
   height: 202px;
   margin: auto;
@@ -55,12 +56,11 @@
   line-height: 4.2rem;
 }
 
-.c-section-title_blog{
+.c-section-title_blog {
   color: $white;
   margin: 8px auto;
 
 }
-
 
 .c-block-title {
   @extend .c-section-title;
@@ -69,6 +69,7 @@
   width: 55%;
   margin: 0 auto 15px;
   line-height: 2.6rem;
+  text-align: center;
   &:after {
     content: "";
     width: 90px;
@@ -78,22 +79,25 @@
   }
 }
 
-.c-block-title_left{
+.c-block-title_left {
   margin: auto 0;
-  width:100%;
+  width: 100%;
+  text-align: left;
   &:after {
     margin: 16px 0 0 0;
-    border-bottom: 3px solid rgba($gray,0.5 );
+    border-bottom: 3px solid rgba($gray, 0.5);
   }
 }
 
-.c-block-title_white{
+.c-block-title_white {
   color: $white;
-  width:100%;
+  width: 100%;
   text-align: center;
 }
-.c-block-title_pure{
-  width:100%;
+
+.c-block-title_pure {
+  text-align: left;
+  width: 100%;
   &:after {
     content: none;
   }
@@ -118,19 +122,48 @@
   display: none;
 }
 
-.c-section__btn{
-  width: 25px;
+.c-section__btn {
+  width: 25+80px;
   height: 16.5vh;
-  margin:0 auto;
+  margin: 0 auto;
   fill: $white;
-
+  padding: 0 40px;
+  z-index: 1000;
+  &:hover {
+    .c-section__icon {
+      opacity: 0.8;
+    }
+  }
 }
-.c-section__btn_prev{
-  & .c-section__icon{
+
+.c-section__btn_prev {
+  & .c-section__icon {
     transform: rotate(180deg);
   }
 }
-.c-section__icon{
+
+.c-section__icon {
+  transition: 0.3s;
   width: 100%;
   opacity: 0.5;
 }
+
+// TRIANGLES
+.c-section__triangle {
+  display: block;
+  width: 100%;
+  height: 110px;
+  position: absolute;
+  bottom: 100%;
+  &_color_beiger {
+    fill: $beige;
+
+  }
+  &_color_bg-white {
+    fill: $bg-white;
+  }
+  &_color_dark-blue {
+    fill: rgba($dark-blue, 0.85)
+  }
+}
+

@@ -39,14 +39,23 @@
 .c-skill__circle {
   position: absolute;
   height:100%;
-  @include circle(100%);
-  background: rgba($blue,0.2);
+  width: 100%;
+  fill:transparent;
+  stroke-width:15;
+
+  &_outer{
+    stroke:$blue;
+    stroke-dasharray:100 ;
+  }
+  &_inner{
+    stroke:$light-gray;
+  }
 }
 
 .c-skill__title {
   text-align: center;
   @include roboto(medium);
-  font-size: 13px;
+  font-size: 12px;
   width:70%;
   margin: 0 auto;
   color: $blue;

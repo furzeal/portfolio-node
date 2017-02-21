@@ -9,13 +9,13 @@ section.l-section.l-yells
             yell1: {
                 name:'Ковальчук Дмитрий',
                 occupation:'- основатель Loftshcool',
-                img:'/assets/img/yells-1.jpg',
+                img:'./assets/img/yells-1.jpg',
                 content:'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! Выдержал самые тяжелые испытания в условиях жестких дедлайнов и бессонных ночей!'
             },
             yell2: {
                 name:'Сабанцев Владимир',
                 occupation:'- преподаватель',
-                img:'/assets/img/yells-2.jpg',
+                img:'./assets/img/yells-2.jpg',
                 content:'Этот код выдержит любые испытания. Только, пожалуйста, не загружайте сайт на слишком старых браузерах!'
             }
         }
@@ -29,6 +29,6 @@ section.l-section.l-yells
                         .c-yell__persona-name #{yell.name}
                         .c-yell__persona-occupation.c-yell__text #{yell.occupation}
     include  ../yells/_form
-    a.c-section__btn.c-section__btn_prev
+    a.c-section__btn.c-section__btn_prev(href="#section2")
         +svg('c-section__icon',`arrow_down`)
     include ../../components/_footer

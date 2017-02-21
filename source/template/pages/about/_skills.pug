@@ -14,5 +14,8 @@
                     each value in skillGroup
                         li.c-skills-list__item
                             .c-skill
-                                svg.c-skill__circle
+                                svg(viewBox="0 0 100 100" preserveAspectRatio="none").c-skill__circle.c-skill__circle_inner
+                                    circle(cx="50" cy="50" r="40")
+                                svg(viewBox="0 0 100 100" preserveAspectRatio="none").c-skill__circle.c-skill__circle_outer
+                                    circle(cx="50" cy="50" r="40")
                                 .c-skill__title= value
