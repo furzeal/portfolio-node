@@ -57,6 +57,10 @@
 
 .c-about__pic {
   width: 100%;
+  margin-top:30px;
+  @include desktop{
+    margin-top:0;
+  }
   margin-bottom: 20px;
   @include phone{
     margin: 0 -2.5% 20px -2.5%;
