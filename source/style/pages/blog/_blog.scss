@@ -12,6 +12,25 @@
 
 .c-blog-sidebar {
   flex: 1;
+  position: relative;
+  color: $gray;
+  @include tablet {
+    flex: none;
+    background: $sidebar-color;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    margin-left: -280px;
+    transition: 0.5s;
+    color: $white;
+  }
+  @include phone {
+    width: 85vw;
+    margin-left: -85vw;
+  }
 }
 
 .c-blog-sidebar__list {
@@ -25,6 +44,9 @@
   transition: 0.3s;
   &:hover {
     border-right: 3px solid $blue;
+    @include tablet {
+      border-right: 3px solid $white;
+    }
   }
 }
 
@@ -32,18 +54,54 @@
   text-decoration: none;
   padding: 10px 0;
   margin: 10px 0;
-  color: $gray;
+  color: inherit;
   display: block;
-  transition: 0.6s;
+  transition: 0.3s;
+  @include tablet {
+    opacity: 0.75;
+  }
   &:hover {
     color: $blue;
+    @include tablet {
+      color: inherit;
+      opacity: 1.0;
+    }
+  }
+  &_active {
     @include roboto(medium);
   }
+}
+
+.c-blog-sidebar__button {
+  padding: 5px 25px 5px 0;
+  z-index: 1000;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  left: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: color 0.5s;
+  @include tablet {
+    display: block;
+  }
+}
+
+.c-blog-sidebar__icon {
+  width: 10px;
+  height: 50px;
+  fill: $sidebar-color;
 }
 
 .c-articles {
   flex: 3;
   padding: 10px 100px;
+  @include phone {
+    padding: 10px 3%;
+  }
 }
 
 .c-articles__list {
@@ -53,10 +111,24 @@
   &:after {
     content: "";
     width: 100%;
-    border-bottom: 5px solid rgba($dark-gray, 0.07); // СДЕЛАТЬ ПОЛОСКУ!
+    border-bottom: 5px solid rgba($dark-gray, 0.07);
     padding-top: 70px;
     margin-bottom: 70px;
     display: block;
+    @include tablet {
+      padding-top: 50px;
+      margin-bottom: 50px;
+    }
+    @include phone {
+      padding-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  &_last {
+    &:after {
+      border-bottom: 5px solid transparent;
+      padding-top: 0;
+    }
   }
 }
 

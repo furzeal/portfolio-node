@@ -1,4 +1,7 @@
-
+.c-socials-wrapper{
+  margin: 30px;
+  height: 100%;
+}
 
 .c-socials {
   display: flex;
@@ -10,6 +13,11 @@
 .c-socials__item {
   width: 30px;
   height: 26px;
+  margin-right:24px;
+  @include tablet{
+    width: 1.15*30px;
+    height: 1.15*26px;
+  }
 }
 
 .c-socials__link {
@@ -23,10 +31,10 @@
   &:hover {
     fill: $blue;
   }
-}
-
-.c-socials-wrapper {
-
+  @include tablet{
+    width: 1.15*30px;
+    height: 1.15*26px;
+  }
 }
 
 .c-socials-wrapper_welcome {

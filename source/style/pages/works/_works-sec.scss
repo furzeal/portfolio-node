@@ -5,9 +5,13 @@
 
 .l-works__title {
   height: 20vh;
+  min-height: 171px;
   background: rgba($dark-blue,0.85);
   width: 100%;
   display: flex;
+  @include tablet{
+    height:auto;
+  }
 }
 
 .l-works-title__triangles {

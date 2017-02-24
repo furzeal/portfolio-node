@@ -44,19 +44,19 @@ p {
   font-size: rem($font-size);
 }
 
-.wrapper {
-  min-height: 100%;
-  position: relative;
-  width: 100%;
-  //min-width:1100px;
-}
-
-.wrapper:after {
-  content: "";
-  display: block;
-//  height: rem($footer-height);
-  overflow: hidden;
-}
+//.wrapper {
+//  min-height: 100%;
+//  position: relative;
+//  width: 100%;
+//  //min-width:1100px;
+//}
+//
+//.wrapper:after {
+//  content: "";
+//  display: block;
+////  height: rem($footer-height);
+//  overflow: hidden;
+//}
 
 
 /* задает отступы (к примеру от футера) и прочее */

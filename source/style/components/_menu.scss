@@ -1,0 +1,12 @@
+.c-menu-icon
+{
+  width: 40+60px;
+  height: 35+60px;
+  padding: 30px;
+  fill: $white;
+  cursor: pointer;
+  @include tablet{
+    width: 1.15*40+60px;
+    height: 1.15*35+60px;
+  }
+}

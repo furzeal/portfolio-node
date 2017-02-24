@@ -30,4 +30,4 @@ ul.c-contacts-list
         li.c-contacts__item
             a.c-contacts__link(href=`${contact.link}` target=`${contact.target}`)
                 +svg('c-contacts__icon',`${contact.icon}`)
-                .c-contacts__link-content #{contact.content}
+                | #{contact.content}

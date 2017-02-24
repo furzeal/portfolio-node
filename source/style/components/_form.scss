@@ -1,27 +1,79 @@
-.c-form-container{
+.c-form-container {
   width: 380px;
   margin: 0 auto;
-  background: rgba($white,0.05);
+
+  &_yells {
+    background: rgba($white, 0.05);
+    @include phone{
+      width: 90%;
+    }
+  }
+  &_welcome {
+    //background: inherit;
+    @include phone{
+      width: 100%;
+    }
+    .c-block-title_pure {
+      text-align: center;
+    }
+    .c-form__button {
+      background: rgba($blue, 0.45);
+      &:hover {
+        background: rgba($blue, 0.75);
+      }
+    }
+  }
 }
-.c-form-container_yells{}
 
 .c-form {
   padding: 35px 20px 10px 20px;
-
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+  align-items: center;
 }
 
+.c-form__input-wrapper {
+  height: 45px;
+  position: relative;
+  margin-bottom: 20px;
+  background: $white;
+  display: flex;
+  width: 100%;
+  &:before {
+    content: '';
+    height: 100%;
+    min-width: 45px;
+    background: $bg-white;
+  }
+}
 
 .c-form__input {
-  background: rgba($white,0.07);
+  background: rgba($white, 0.07);
   color: $white;
   margin: 10px auto;
-  padding: 15px;
+  padding: 0 15px;
   width: 100%;
-  border:none;
-  outline:none;
+  height: 45px;
+  border: none;
+  outline: none;
+  &_bg_white {
+    color: $dark-gray;
+    margin: auto;
+  }
+}
+
+.c-form__input-icon {
+  position: absolute;
+  height: 100%;
+  width: 45px;
+  fill: $light-gray;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .c-form__input_textarea {
+  padding-top: 15px;
   height: 150px;
 }
 
@@ -32,15 +84,149 @@
 .c-form__button {
   flex: 1;
   color: $white;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   padding: 15px;
   text-align: center;
   cursor: pointer;
   background: none;
+  transition: 0.3s;
+  &:hover {
+    background: rgba($blue, 0.45);
+  }
+  &_notfirst {
+    position: relative;
+    &:before {
+      content: '';
+      width: 1px;
+      position: absolute;
+      border-left: 1px solid rgba($white, 0.2);
+      display: block;
+      height: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+  }
+  &_highlighted {
+    background: rgba($blue, 0.7);
+    &:hover {
+      background: rgba($blue, 0.93);
+    }
+  }
+
 }
 
-.c-form__button_highlighted {
-  background: $blue;
+
+
+.c-nav-panel__button {
+  flex: 1;
+  background: rgba($blue, 0.45);
+  transition: 0.3s;
+  &:hover {
+    background: rgba($blue, 0.75);
+  }
+}
+
+.c-checkbox {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  &_active {
+    .c-checkbox__checked-icon {
+      display: block;
+    }
+  }
+}
+
+.c-label {
+  color: rgba($white, 0.85);
+}
+
+.c-checkbox__label {
+  display: flex;
+  margin: 0 auto 15px;
+  position: relative;
+  cursor: pointer;
+  &:before {
+    content: '';
+    height: 20px;
+    width: 20px;
+    background: $blue;
+    margin-right: 10px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+}
+
+.c-checkbox__checked-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: $white;
+  display: none;
+}
+
+.c-checkbox__input {
+  display: none;
+}
+
+.c-form__text {
+  color: rgba($white, 0.8);
+  @include roboto(bold);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.c-radiobutton-block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.c-radiobutton {
+  &_active {
+    .c-radiobutton__label {
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        height: 10px;
+        min-width: 10px;
+        background: $blue;
+        border-radius: 50%;
+        overflow: hidden;
+        top: 5px;
+        left: 5px;
+      }
+    }
+  }
+}
+
+
+
+.c-radiobutton__label {
+  display: flex;
+  margin-left: 15px;
+  cursor: pointer;
+  &:before {
+    content: '';
+    height: 20px;
+    min-width: 20px;
+    background: $white;
+    margin-right:10px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
+.c-radiobutton__input {
+  display: none;
 }
 

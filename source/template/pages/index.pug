@@ -3,6 +3,10 @@ extends ../layouts/_default
 block section1
     section.l-section.l-welcome
         a.l-welcome__auth-btn(href='#') Авторизоваться
-        .l-welcome__frame-wrapper
+        .l-frame-wrapper.l-frame-wrapper_welcome
             include ../components/_frame
+        .l-frame-wrapper.l-frame-wrapper_auth
+            include index/_form-auth
         .l-welcome__copyright.c-footer__text © Максим Шаталов | Создано с любовью в LoftSchool | 2017
+        .l-welcome__copyright_phone.c-footer__text © Максим Шаталов
+        .l-welcome__copyright_phone.c-footer__text Создано с любовью в LoftSchool | 2017

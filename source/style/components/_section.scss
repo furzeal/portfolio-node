@@ -1,12 +1,15 @@
 .l-section {
-  width: 100%;
+  width: 100vw;
   display: flex;
+  min-height: 600px;
 }
 
 .c-section-title-container {
   position: relative;
   height: 120px;
   display: flex;
+  flex: 2;
+  margin: 0 auto;
 }
 
 .c-section-title-container_works {
@@ -54,6 +57,13 @@
   text-transform: uppercase;
   margin: auto;
   line-height: 4.2rem;
+  text-align: center;
+  @include tablet {
+    font-size: 56px;
+  }
+  @include phone {
+    font-size: 40px;
+  }
 }
 
 .c-section-title_blog {
@@ -70,12 +80,45 @@
   margin: 0 auto 15px;
   line-height: 2.6rem;
   text-align: center;
+  @include desktop {
+    width: 60%;
+  }
+  @include laptop {
+    width: 71%;
+  }
+  @include tablet{
+    width: 74%;
+    font-size:33px;
+  }
+  @include phone{
+    width: 47%;
+    font-size:24px;
+  }
+  &_white {
+    color: $white;
+    width: 100%;
+    text-align: center;
+  }
   &:after {
     content: "";
     width: 90px;
     border-bottom: 3px solid $gray;
     display: block;
     margin: 16px auto 0;
+    @include phone{
+      margin: 6px auto 0;
+      width: 70px;
+    }
+  }
+
+  &_welcome {
+    color: $white;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    &:after {
+      content: none;
+    }
   }
 }
 
@@ -87,12 +130,6 @@
     margin: 16px 0 0 0;
     border-bottom: 3px solid rgba($gray, 0.5);
   }
-}
-
-.c-block-title_white {
-  color: $white;
-  width: 100%;
-  text-align: center;
 }
 
 .c-block-title_pure {
@@ -164,6 +201,20 @@
   }
   &_color_dark-blue {
     fill: rgba($dark-blue, 0.85)
+  }
+
+  @include tablet {
+    height: 65px;
+    &_about {
+      width: 50%;
+    }
+    &_right {
+      left: 50%;
+      fill: $beige;
+    }
+  }
+  @include phone {
+    height: 35px;
   }
 }
 

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="14.137px" height="15.422px" viewBox="0 0 14.137 15.422" enable-background="new 0 0 14.137 15.422" xml:space="preserve">
+	 viewBox="0 0 45 45" style="enable-background:new 0 0 45 45;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C4CBCD;}
+</style>
 <g>
-	<path fill="#C4CBCD" d="M11.456,15.422H2.681C1.084,15.422,0,14.448,0,12.821c0-2.269,0.532-5.753,3.474-5.753
-		c0.312,0,1.627,1.396,3.595,1.396s3.283-1.396,3.595-1.396c2.941,0,3.474,3.484,3.474,5.753
-		C14.137,14.448,13.053,15.422,11.456,15.422z M7.068,7.711c-2.129,0-3.855-1.727-3.855-3.855S4.939,0,7.068,0
-		s3.855,1.727,3.855,3.855S9.197,7.711,7.068,7.711z"/>
+	<path class="st0" d="M26.9,30.2h-8.8c-1.6,0-2.7-1-2.7-2.6c0-2.3,0.5-5.8,3.5-5.8c0.3,0,1.6,1.4,3.6,1.4s3.3-1.4,3.6-1.4
+		c2.9,0,3.5,3.5,3.5,5.8C29.6,29.2,28.5,30.2,26.9,30.2z M22.5,22.5c-2.1,0-3.9-1.7-3.9-3.9s1.7-3.9,3.9-3.9s3.9,1.7,3.9,3.9
+		S24.6,22.5,22.5,22.5z"/>
 </g>
 </svg>

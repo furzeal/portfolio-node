@@ -1,9 +1,14 @@
 .c-slider {
   width: 100%;
   height: 80vh;
-  background: $beige;
+  background: $bg-white;
+
   min-height: 670px;
   position: relative;
+  @include tablet {
+    height: auto;
+    min-height: 0;
+  }
 }
 
 .c-slider__list {
@@ -15,12 +20,23 @@
   display: flex;
   width: 100%;
   height: 100%;
+  @include tablet {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 .c-slider-pic {
   flex: 1;
   display: flex;
   align-self: flex-end;
+  @include laptop {
+    flex: 2;
+  }
+  @include tablet {
+    margin: auto;
+    flex: none;
+  }
 }
 
 .c-slider-img {
@@ -28,6 +44,9 @@
   width: 100%;
   max-width: 550px;
   padding-left: 60px;
+  @include tablet {
+    padding: 0 40px;
+  }
 }
 
 .c-slider__description {
@@ -36,6 +55,25 @@
   flex-flow: row wrap;
   padding-left: 100px;
   margin: auto;
+  @include tablet {
+    background: $beige;
+    flex: none;
+    justify-content: center;
+    padding: 40px 0;
+  }
+}
+
+.c-slider-title {
+  @include tablet {
+    text-align: center;
+    &:after {
+      margin: 16px auto 0;
+      @include phone {
+        margin: 6px auto 0;
+        width: 70px;
+      }
+    }
+  }
 }
 
 .c-slider-item__skills {
@@ -44,6 +82,9 @@
   text-transform: uppercase;
   padding: 20px 0;
   width: 100%;
+  @include tablet {
+    text-align: center;
+  }
 }
 
 .c-slider-btn {
@@ -73,6 +114,9 @@
   justify-content: center;
   right: 0;
   left: 0;
+  @include tablet {
+    display: none;
+  }
 }
 
 .c-pager__list {
@@ -86,15 +130,19 @@
   margin: 30px 10px;
 }
 
-.c-slider__button{
-  fill: rgba($blue,0.7);
+.c-slider__button {
+  fill: rgba($blue, 0.7);
   width: 26+30px;
   height: 16+30px;
   position: absolute;
   top: 50%;
   padding: 15px;
   cursor: pointer;
+  @include tablet {
+    display: none;
+  }
 }
+
 .c-slider__button_prev {
   transform: rotate(90deg) translateX(-13px);
   right: 95%;

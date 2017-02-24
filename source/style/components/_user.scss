@@ -4,9 +4,15 @@
   text-align: center;
   z-index: 500;
   color: $white;
+  @include phone{
+    margin:auto;
+  }
 }
 .c-user__pic{
   @include circle(145px);
+  @include tablet{
+    @include circle(1.15*145px)
+  }
   margin:0 auto 14px;
 }
 .c-user__pic_blog{

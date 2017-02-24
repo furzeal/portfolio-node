@@ -35,6 +35,10 @@ section.l-section.l-blog(id="section2")
                 each article in articles
                     li.c-blog-sidebar__item
                         a.c-blog-sidebar__link(href='#') #{article.title}
+            .c-blog-sidebar__button
+                svg.c-blog-sidebar__icon( viewBox="0 0 8 40")
+                    circle(cx='-22.5' cy='20' r='30')
+
         .c-articles
             ul.c-articles__list
                 each article in articles
@@ -44,5 +48,4 @@ section.l-section.l-blog(id="section2")
                         .c-article__content.c-block-text
                             each paragraph in article.content
                                 p #{paragraph}
-
     include ../../components/_footer

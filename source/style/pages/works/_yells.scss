@@ -8,21 +8,40 @@
   margin: 20px auto;
   width: 30%;
   text-align: center;
+  @include desktop{
+    width: 45%;
+  }
+  @include laptop{
+    width: 56%;
+  }
+  @include phone{
+    width: 65%;
+  }
+
 }
 
 .c-yells {
   margin: 0 auto 70px ;
   width: 760px;
+  @include tablet{
+    width: 94%;
+  }
 }
 
 .c-yells__list {
   display: flex;
+  @include phone{
+    flex-direction:column;
+  }
 }
 
 .c-yell {
   flex: 1;
   display: flex;
   flex-direction: column;
+  @include phone{
+    margin-bottom: 30px;
+  }
 }
 
 .c-yell__pic {
@@ -32,6 +51,9 @@
 
 .c-yell__content {
   margin-bottom:15px;
+  @include tablet{
+    padding: 0 5px;
+  }
 }
 .c-yell__text {
   width: 100%;

@@ -4,13 +4,25 @@
   position: relative;
   display: flex;
   flex-direction: column;
-}
-.l-welcome__frame-wrapper{
-  width:380px;
-  margin:auto;
-  background: rgba(#1c1f29,0.5);
+
 }
 
+.l-frame-wrapper {
+  width: 380px;
+  margin: auto;
+  background: rgba(#1c1f29, 0.5);
+  @include phone{
+    width: 90%;
+  }
+  &_welcome {
+    //display: none;
+    display: block;
+  }
+  &_auth {
+    //display: block;
+    display: none;
+  }
+}
 
 .l-welcome__auth-btn {
   position: absolute;
@@ -21,12 +33,32 @@
   display: block;
   border: 1px solid $white;
   color: $white;
+  transition: 0.3s;
+  @include phone{
+    right: 50%;
+    transform: translateX(50%);
+  }
   &:hover {
-    background: #000;
+    background: $blue;
+    border: 1px solid transparent;
   }
 }
 
 .l-welcome__copyright {
   height: 3.5vh;
-  margin:0 auto;
+  margin: 0 auto;
+  @include phone {
+    display: none;
+  }
+}
+
+.l-welcome__copyright_phone{
+  @extend .l-welcome__copyright;
+  display: none;
+  @include phone {
+    display: block;
+    text-align: center;
+    height:auto;
+
+  }
 }

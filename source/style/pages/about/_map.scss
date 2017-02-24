@@ -3,6 +3,9 @@
   position: relative;
   flex-direction: column;
   justify-content: flex-end;
+  @include phone{
+    height:auto;
+  }
 }
 
 .l-map__widget {
@@ -14,20 +17,20 @@
   bottom: 0;
   top: 0;
   z-index:-3;
+  @include phone{
+    position: static;
+    height: 100vh;;
+  }
+
 }
-
-
-
 .l-contacts {
   margin:auto;
-  width: 48%;
+  width: 580px;
   background: rgba($white, 0.7);
   padding: 30px 20px;
-}
-
-
-
-.c-block-title {
+  @include tablet{
+    width: 350px;
+  }
 
 }
 

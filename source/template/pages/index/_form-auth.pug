@@ -1,0 +1,24 @@
+.c-form-container.c-form-container_welcome
+    form.c-form(id="yells-form")
+        .c-block-title.c-block-title_welcome авторизируйтесь
+        .c-form__input-wrapper
+            input.c-form__input.c-form__input_bg_white(type="text" placeholder="Логин")
+            +svg('c-form__input-icon',`login`)
+        .c-form__input-wrapper
+            input.c-form__input.c-form__input_bg_white(type="email" placeholder="Пароль")
+            +svg('c-form__input-icon',`password`)
+        .c-checkbox
+            label.c-label.c-checkbox__label() Я человек
+                +svg('c-checkbox__checked-icon',`check`)
+                input.c-checkbox__input(type="checkbox" id="is-human" name="is-human" )
+        .c-form__text Вы точно не робот?
+        .c-radiobutton-block
+            .c-radiobutton.c-radiobutton_active
+                label.c-label.c-radiobutton__label() Да
+                    input.c-radiobutton__input(type="radio" id="is-human_true" name="is-human-value" value='yes' required)
+            .c-radiobutton
+                label.c-label.c-radiobutton__label() Не уверен
+                    input.c-radiobutton__input(type="radio" id="is-human_false" name="is-human-value" value='no' required)
+    .c-form__panel
+        button.c-form__button(type="submit" form="yells-form") На главную
+        button.c-form__button.c-form__button_notfirst Войти
