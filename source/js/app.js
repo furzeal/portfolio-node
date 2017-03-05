@@ -21,8 +21,8 @@ var parallax = (function () {
                 return;
             }
             this.move(bg, winScroll, 100);
-            this.move(user, -winScroll, 7);
-            this.move(userBg, -winScroll, 10);
+            this.move(user, -winScroll, 9);
+            this.move(userBg, -winScroll, 13);
         }
     }
 })();
@@ -472,6 +472,7 @@ $(document).ready(function () {
         if (!$this.hasClass('active')) {
             removeActiveClass(slideToShow);
             removeActiveClass(clickedPage);
+            changeDescription(description, slideToShow.index())
         }
     });
 
