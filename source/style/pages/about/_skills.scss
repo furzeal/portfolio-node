@@ -1,8 +1,28 @@
+$transDelay: 0.3s;
+
 .c-skills {
   margin-top: 50px;
-}
-
-.c-skills-group {
+  & :nth-child(4) {
+    .c-skill__circle {
+      &_outer {
+        transition-delay: $transDelay;
+      }
+    }
+  }
+  & :nth-child(6) {
+    .c-skill__circle {
+      &_outer {
+        transition-delay: 2*$transDelay;
+      }
+    }
+  }
+  & :nth-child(8) {
+    .c-skill__circle {
+      &_outer {
+        transition-delay: 3*$transDelay;
+      }
+    }
+  }
 }
 
 .c-skills-group__item {
@@ -32,7 +52,6 @@
   }
 }
 
-
 .c-skills-list__item {
   margin: 0 0 5% 5%;
   @include tablet {
@@ -58,12 +77,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  top: 0;
   fill: transparent;
-  stroke-width: 15;
-
+  stroke-width: 15%;
+  transform: rotate(-90deg);
   &_outer {
     stroke: $blue;
-    stroke-dasharray: 100;
+    transition: 1s 0.2s ease-out;
   }
   &_inner {
     stroke: $light-gray;

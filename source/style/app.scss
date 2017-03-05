@@ -13,8 +13,9 @@ $dark-blue:#0d1120;
 $beige:#f2f0e8;
 $bg-white:#f4f5f0;
 $bg-blue:#183669;
+$bg-stars:#152c55;
 $sidebar-color:#253468;
-
+$red:#d71439;
 
 // DIMENSIONS
 //$container-width:940px;
@@ -40,14 +41,15 @@ $font-size:16px;
 @import 'components/_section';
 @import 'components/_developer';
 @import 'components/_contacts';
-@import 'components/_nav';
+@import 'components/_menu';
 @import 'components/_socials';
 @import 'components/_user';
-@import 'components/_menu';
 @import 'components/_footer';
 @import 'components/_slider';
 @import 'components/_form';
 @import 'components/_frame';
+@import 'components/_blinking-stars';
+@import 'components/_preloader';
 
 
 // pages

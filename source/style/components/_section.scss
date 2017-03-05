@@ -124,7 +124,7 @@
 
 .c-block-title_left {
   margin: auto 0;
-  width: 100%;
+  width: 80%;
   text-align: left;
   &:after {
     margin: 16px 0 0 0;
@@ -162,7 +162,7 @@
 .c-section__btn {
   width: 25+80px;
   height: 16.5vh;
-  margin: 0 auto;
+  margin: auto auto 0;
   fill: $white;
   padding: 0 40px;
   z-index: 1000;

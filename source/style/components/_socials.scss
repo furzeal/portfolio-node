@@ -29,7 +29,7 @@
   fill: $white;
   transition: 0.3s;
   &:hover {
-    fill: $blue;
+    fill: $map-blue;
   }
   @include tablet{
     width: 1.15*30px;
@@ -42,7 +42,10 @@
   & .c-socials__icon {
     fill: rgba($blue, 0.65);
     &:hover {
-      fill: $blue;
+      fill: $map-blue;
     }
   }
+}
+.c-socials-wrapper_footer {
+  margin: 35px 0;
 }

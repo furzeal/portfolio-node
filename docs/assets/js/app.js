@@ -7,7 +7,8 @@ var parallax = (function () {
 
     return {
         move: function (block, windowScroll, strafeCoefficient) {
-            var strafe = -(windowScroll / strafeCoefficient) + '%';
+            var strafe = -(windowScroll / strafeCoefficient) - 50 + '%';
+            console.log(strafe);
             var style = block.style;
             // Var for rendering by video processor (z-axis)
             var transformString = 'translate3d(0, ' + strafe + ', 0)';

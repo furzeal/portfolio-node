@@ -1,6 +1,6 @@
 -
     var articles={
-    acticle1: {
+    article1: {
     title:'Самое важное в SASS',
     date:'15 февраля 2017',
     content:[
@@ -8,7 +8,7 @@
     'Не следует, однако забывать, что укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Товарищи! постоянный количественный рост и сфера нашей активности способствует подготовки и реализации модели развития. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям.'
     ]
     },
-    acticle2: {
+    article2: {
     title:'Почему я выбрал Pug',
     date:'10 февраля 2017',
     content:[
@@ -16,7 +16,7 @@
     'Не следует, однако забывать, что укрепление и развитие структуры обеспечивает широкому кругу участие в формировании систем массового участия. Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Товарищи! постоянный количественный рост и сфера нашей активности способствует подготовки и реализации модели развития. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям.'
     ]
     },
-    acticle3: {
+    article3: {
     title:'Особенности Webpack',
     date:'21 января 2017',
     content:[
@@ -32,17 +32,22 @@ section.l-section.l-blog(id="section2")
     .c-blog
         aside.c-blog-sidebar
             ul.c-blog-sidebar__list
-                each article in articles
-                    li.c-blog-sidebar__item
-                        a.c-blog-sidebar__link(href='#') #{article.title}
+                each article, key in articles
+                        -
+                            var className = ''
+                            if (key == 'article1')
+                                className='c-blog-sidebar__item active'
+                            else
+                                className='c-blog-sidebar__item'
+                        li(class = className)
+                            a.c-blog-sidebar__link(href=`#${key}`) #{article.title}
             .c-blog-sidebar__button
                 svg.c-blog-sidebar__icon( viewBox="0 0 8 40")
                     circle(cx='-22.5' cy='20' r='30')
-
         .c-articles
             ul.c-articles__list
-                each article in articles
-                    li.c-article
+                each article, key in articles
+                    li.c-article(data-id=key)
                         .c-article__title.c-block-title.c-block-title_pure #{article.title}
                         .c-article__date #{article.date}
                         .c-article__content.c-block-text

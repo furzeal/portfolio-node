@@ -10,10 +10,18 @@
   padding-top: 45px;
 }
 
+$sidebar-width: 280px;
 .c-blog-sidebar {
-  flex: 1;
+  width: $sidebar-width;
   position: relative;
   color: $gray;
+  &_fixed {
+    .c-blog-sidebar__list {
+      position: fixed;
+      top: 0;
+      width: $sidebar-width;
+    }
+  }
   @include tablet {
     flex: none;
     background: $sidebar-color;
@@ -22,10 +30,13 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 280px;
-    margin-left: -280px;
+    width: $sidebar-width;
+    margin-left: -$sidebar-width;
     transition: 0.5s;
     color: $white;
+    &.active {
+      margin-left: 0;
+    }
   }
   @include phone {
     width: 85vw;
@@ -34,7 +45,10 @@
 }
 
 .c-blog-sidebar__list {
-
+  width:$sidebar-width -20px;
+  @include tablet() {
+    margin-right: 20px;
+  }
 }
 
 .c-blog-sidebar__item {
@@ -42,10 +56,18 @@
   padding-right: 17px;
   border-right: 3px solid transparent;
   transition: 0.3s;
-  &:hover {
+  &.active {
     border-right: 3px solid $blue;
     @include tablet {
       border-right: 3px solid $white;
+    }
+    & .c-blog-sidebar__link {
+      @include roboto(medium);
+      color: $blue;
+      @include tablet {
+        color: inherit;
+        opacity: 1.0;
+      }
     }
   }
 }
@@ -56,7 +78,7 @@
   margin: 10px 0;
   color: inherit;
   display: block;
-  transition: 0.3s;
+  //transition: 0.3s;
   @include tablet {
     opacity: 0.75;
   }
@@ -66,9 +88,6 @@
       color: inherit;
       opacity: 1.0;
     }
-  }
-  &_active {
-    @include roboto(medium);
   }
 }
 
@@ -80,7 +99,7 @@
   position: absolute;
   width: 10px;
   height: 50px;
-  left: 100%;
+  left: 99.8%;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -124,7 +143,7 @@
       margin-bottom: 30px;
     }
   }
-  &_last {
+  &:last-child {
     &:after {
       border-bottom: 5px solid transparent;
       padding-top: 0;
