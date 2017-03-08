@@ -1,0 +1,33 @@
+-
+    var skills={
+    Frontend:{
+    'HTML5':80,
+    'CSS3':50,
+    'JavaScript & jQuery':40},//'WPF'],
+    Backend:{
+    'PHP & Laravel' :50,
+    'mySQL':50,
+    'Node.js & npm':20,
+    'Mongo.db':40,
+    'C#':60,
+    'SQL Server':40},
+    Workflow:{
+    'Git':70,
+    'Gulp':70,
+    '3ewerwe4':20,
+    'Webpack':20,
+    'Artisan':50}
+    }
+
+form.c-admin-form(id="admin-skills")
+    .c-admin-form__title Страница "Обо мне"
+    ul.c-admin-skills
+        each skillGroup, key in skills
+            li.c-admin-skills__group
+                .c-admin-group__title= key
+                ul.c-admin-skills__list
+                    each value, key in skillGroup
+                        li.c-admin-skill
+                            .c-admin-skill__title= key
+                            input.c-admin-form__input.c-admin-form__input_skills(type="text" form="admin-skills" name=`${key}` value=`${value}` required=true)
+button.c-admin-form__button(type="submit" form="admin-skills") Сохранить

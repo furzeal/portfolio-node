@@ -1,0 +1,38 @@
+.c-admin-skills {
+  height: 80%;
+  display: flex;
+}
+
+.c-admin-skills__group {
+  width: 250px;
+  margin-bottom: 20px;
+  flex: 1;
+  margin-right: 50px;
+}
+
+.c-admin-group__title {
+  @include roboto(medium);
+  margin-bottom: 25px;
+}
+
+.c-admin-skills__list {
+
+}
+
+.c-admin-skill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.c-admin-skill__title {
+  padding-left: 25px;
+  flex: 1;
+  &:before {
+    content: '%';
+    padding-left: 5px;
+    position: absolute;
+    left: 100%;
+  }
+}

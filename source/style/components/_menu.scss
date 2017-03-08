@@ -51,6 +51,10 @@
     width: 1.15*40px;
     height: 1.15*35px;
   }
+  @include phone {
+    width: 40px;
+    height: 35px;
+  }
 }
 
 .c-menu-icon__line {

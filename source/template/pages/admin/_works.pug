@@ -1,0 +1,17 @@
+form.c-admin-form.c-admin-form_blog(id="admin-works")
+    .c-admin-form__title Страница "Мои работы"
+    .c-admin-form-group__title Добавить работу
+    input.c-admin-form__input.c-admin-form__input_blog(type="text" placeholder="Название проекта" form="admin-works" required=true)
+    input.c-admin-form__input.c-admin-form__input_blog(type="text" placeholder="Технологии" form="admin-works" required=true)
+    a.c-admin-form__upload-link(id="uploadfile")
+        +svg('c-admin-form__upload-icon',`upload`)
+        | Загрузить картинку
+    input.c-admin-form__input.c-admin-form__input_blog(type="file" accept="image/*" value="Загрузить картинку" form="admin-works" name="file" required=true hidden=true)
+
+button.c-admin-form__button(type="submit" form="admin-works") Добавить
+
+
+//-$("#uploadfile").click(function (e)
+    //- e.preventDefault();
+//-$("#file").trigger('click');
+//-});
