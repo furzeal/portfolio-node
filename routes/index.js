@@ -5,7 +5,7 @@ router.get('/', function (req, res) {
     res.render('pages/index', obj);
 });
 router.get('/auth', function (req, res) {
-    var obj = {title: "Г222лавная страница", isAuth:true};
+    var obj = {title: "Авторизация", isAuth:true};
     res.render('pages/index', obj);
 });
 
