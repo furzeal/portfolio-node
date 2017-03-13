@@ -73,7 +73,7 @@ app.use(function (err, req, res, next) {
 });
 
 // start server
-server.listen(3000, 'localhost');
+server.listen(3000, '0.0.0.0');
 server.on('listening', function () {
 
     if (!fs.existsSync(uploadDir)) {
