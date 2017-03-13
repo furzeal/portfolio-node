@@ -566,7 +566,8 @@ $(document).ready(function () {
         function checkSection() {
             articleAll.each(function (i, item) {
                 var article = $(item);
-                var topEdge = article.offset().top - 350;
+                var topEdge = article.offset().top - 0.55*$(window).innerHeight();
+                console.log($(window).innerHeight);
                 var bottomEdge = topEdge + article.height();
                 var topScroll = $(window).scrollTop();
                 if (topEdge < topScroll && bottomEdge > topScroll) {
