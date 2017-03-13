@@ -1,0 +1,24 @@
+.c-form-container.c-form-container_welcome
+    form.c-form#auth-form(action='admin' novalidate=true methos="post")
+        .c-block-title.c-block-title_welcome авторизируйтесь
+        .c-form__input-wrapper
+            input.c-form__input.c-form__input_bg_white(name="username" type="text" placeholder="Логин" required)
+            +svg('c-form__input-icon',`login`)
+        .c-form__input-wrapper
+            input.c-form__input.c-form__input_bg_white(name="password" type="password" placeholder="Пароль" required)
+            +svg('c-form__input-icon',`password`)
+        .c-checkbox
+            input.c-checkbox__input(type="checkbox" name="is-human" checked=false required)#is-human
+            label.c-label.c-checkbox__label(for='is-human') Я человек
+                +svg('c-checkbox__checked-icon',`check`)
+        .c-form__text Вы точно не робот?
+        .c-radiobutton-block
+            .c-radiobutton
+                input.c-radiobutton__input(type="radio" name="is-human-value" value='yes' required )#is-human_true
+                label.c-label.c-radiobutton__label(for='is-human_true') Да
+            .c-radiobutton
+                input.c-radiobutton__input(type="radio" name="is-human-value" value='no' required )#is-human_false
+                label.c-label.c-radiobutton__label(for='is-human_false') Не уверен
+    .c-form__panel
+        button.c-form__button(data-flip="toggle") На главную
+        button.c-form__button.c-form__button_notfirst(type="submit" form="auth-form") Войти

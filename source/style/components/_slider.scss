@@ -1,13 +1,13 @@
 .c-slider {
   width: 100vw;
-  height: 80vh;
   background: $bg-white;
-  min-height: 670px;
+  height:80vh;
+  min-height: 720px;
   position: relative;
   display: flex;
   justify-content: space-around;
   @include tablet {
-    flex-direction: column;
+    flex-flow: row wrap;
     height: auto;
   }
 }
@@ -18,8 +18,8 @@
   height: 100%;
   display: flex;
   align-self: flex-end;
-  @include laptop {
-    flex: 1.5;
+  @include desktop {
+    flex: 2;
   }
   @include tablet {
     margin: auto;
@@ -36,20 +36,25 @@
   margin: auto 10% 0;
   @include tablet {
     margin: auto auto 0 auto;
+    height:auto;
   }
 }
 
 .c-slides__item {
   position: absolute;
-  width: 100%;
-  max-width: 550px;
+  width: 40vw;
   @include centered(x);
   bottom: 0;
   opacity: 0;
   transition: opacity 0.7s ease-in;
+  @include desktop {
+    width: 50vw;
+  }
   @include tablet {
-    width: 90%;
-    max-height: 65vh;
+    width: 70vmin;
+  }
+  @include phone {
+    width: 90vmin;
   }
   &.active {
     opacity: 1;
@@ -60,6 +65,7 @@
   width: 100%;
   display: inline-block;
   vertical-align: bottom;
+
 }
 
 .c-slider__description {
@@ -67,7 +73,7 @@
   display: flex;
   @include tablet {
     background: $beige;
-    height: 30vh;
+    //height: 30vh;
     flex: none;
   }
 }
@@ -200,22 +206,40 @@
     fill: $blue;
   }
   @include tablet {
-    display: none;
+    //display: none;
   }
 }
 
 .c-slider__button_prev {
   transform: rotate(90deg) translateX(-13px);
   right: 95%;
+  @include tablet{
+    right: 90%;
+  }
+  @include phone{
+    right:85%;
+  }
   &:hover {
     transform: rotate(90deg) translateX(-13px) scale(1.3);
+    @include tablet{
+      transform: rotate(90deg) translateX(-13px);
+    }
   }
 }
 
 .c-slider__button_next {
   transform: rotate(-90deg) translateX(13px);
   left: 95%;
+  @include tablet{
+    left: 90%;
+  }
+  @include phone{
+    left:85%;
+  }
   &:hover {
     transform: rotate(-90deg) translateX(13px) scale(1.3);
+    @include tablet{
+      transform: rotate(-90deg) translateX(13px);
+    }
   }
 }

@@ -120,7 +120,7 @@ $spritesheet: (1920px, 1874px, 'sprite.png', $spritesheet-sprites, );
   @include sprite-height($sprite);
 }
 
-// The `sprites` mixin generates identical output to the CSS template
+// The `sprites` mixin generates identical output to the CSS views
 //   but can be overridden inside of SCSS
 //
 // @include sprites($spritesheet-sprites);

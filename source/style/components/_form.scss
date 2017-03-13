@@ -4,13 +4,13 @@
 
   &_yells {
     background: rgba($white, 0.05);
-    @include phone{
+    @include phone {
       width: 90%;
     }
   }
   &_welcome {
     //background: inherit;
-    @include phone{
+    @include phone {
       width: 100%;
     }
     .c-block-title_pure {
@@ -55,11 +55,20 @@
   padding: 0 15px;
   width: 100%;
   height: 45px;
-  border: none;
   outline: none;
+  border: 1px solid transparent;
+  &:focus {
+    border-color: $map-blue;
+  }
   &_bg_white {
     color: $dark-gray;
     margin: auto;
+  }
+  &.field_ok {
+    border-color: $map-blue;
+  }
+  &.field_error {
+    border-color: $red;
   }
 }
 
@@ -118,8 +127,6 @@
 
 }
 
-
-
 .c-nav-panel__button {
   flex: 1;
   background: rgba($blue, 0.45);
@@ -135,11 +142,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  &_active {
-    .c-checkbox__checked-icon {
-      display: block;
-    }
-  }
+
 }
 
 .c-label {
@@ -151,6 +154,10 @@
   margin: 0 auto 15px;
   position: relative;
   cursor: pointer;
+  //&.active {
+  //  .c-checkbox__checked-icon {
+  //    display: block;
+  //  }
   &:before {
     content: '';
     height: 20px;
@@ -159,6 +166,8 @@
     margin-right: 10px;
     border-radius: 2px;
     overflow: hidden;
+    border: 1px solid transparent;
+
   }
 }
 
@@ -169,11 +178,35 @@
   left: 0;
   top: 0;
   fill: $white;
-  display: none;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .c-checkbox__input {
   display: none;
+  &.field_ok {
+    & + .c-checkbox__label {
+      &:before {
+        border-color: $map-blue;
+      }
+    }
+  }
+  &.field_error {
+    & + .c-checkbox__label {
+      &:before {
+        border-color: $red;
+      }
+    }
+  }
+
+  &:checked {
+    & + .c-checkbox__label {
+      & .c-checkbox__checked-icon {
+        opacity: 1;
+      }
+    }
+  }
+
 }
 
 .c-form__text {
@@ -192,42 +225,44 @@
 }
 
 .c-radiobutton {
-  &_active {
-    .c-radiobutton__label {
-      position: relative;
-      &:after {
-        position: absolute;
-        content: '';
-        height: 10px;
-        min-width: 10px;
-        background: $blue;
-        border-radius: 50%;
-        overflow: hidden;
-        top: 5px;
-        left: 5px;
-      }
-    }
-  }
+
 }
-
-
 
 .c-radiobutton__label {
   display: flex;
   margin-left: 15px;
   cursor: pointer;
+  position: relative;
   &:before {
     content: '';
     height: 20px;
     min-width: 20px;
     background: $white;
-    margin-right:10px;
+    margin-right: 10px;
     border-radius: 50%;
     overflow: hidden;
+  }
+  &:after {
+    transition: 0.3s;
+    position: absolute;
+    content: '';
+    height: 10px;
+    min-width: 10px;
+    background: $blue;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 5px;
+    left: 5px;
+    opacity: 0;
   }
 }
 
 .c-radiobutton__input {
   display: none;
+  &:checked {
+    & + .c-radiobutton__label:after {
+      opacity: 1;
+    }
+  }
 }
 

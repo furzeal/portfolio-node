@@ -20,6 +20,9 @@ $sidebar-width: 280px;
       position: fixed;
       top: 0;
       width: $sidebar-width;
+      @include tablet{
+        position: relative;
+      }
     }
   }
   @include tablet {

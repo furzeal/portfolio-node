@@ -1,6 +1,58 @@
 'use strict';
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+// Forms
+// Mail Form
+var mailForm = document.querySelector('#mail-form');
+
+if (mailForm) {
+    mailForm.addEventListener('submit', prepareSendMail);
+}
+
+function prepareSendMail(e) {
+    e.preventDefault();
+    var form = $(this);
+    var popup = $('.l-section__popup');
+    var resultContainer = popup.find('.l-section__status');
+    var data = {
+        username: mailForm.username.value,
+        email: mailForm.email.value,
+        message: mailForm.message.value
+    };
+    resultContainer.text('Отправка сообщения...');
+    popup.delay(200).fadeIn(1000);
+    sendAjaxJson('works', data, function (data) {
+        console.log(data);
+        resultContainer.text(data);
+        popup.fadeOut(1000);
+        form[0].reset();
+    });
+}
+
+
+function sendAjaxJson(url, data, cb) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function (e) {
+        var result = JSON.parse(xhr.responseText);
+        cb(result.status);
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+function sendGetAjaxJson(url, data, cb) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function (e) {
+        var result = JSON.parse(xhr.responseText);
+        cb(result);
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+
 // Modules
 var parallax = (function () {
     var bg = document.querySelector('.l-parallax__bg'),
@@ -20,39 +72,67 @@ var parallax = (function () {
             if (user == null) {
                 return;
             }
-            this.move(bg, winScroll, 100);
-            this.move(user, -winScroll, 9);
-            this.move(userBg, -winScroll, 13);
+            console.log($(window).innerWidth());
+            if ($(window).innerWidth()>768) {
+                this.move(bg, winScroll, 100);
+                this.move(user, -winScroll, 9);
+                this.move(userBg, -winScroll, 13);
+            }
         }
     }
 })();
 
+
 var skills = (function () {
-    var skillItems = null;
+    var skillGroups = null;
     return {
         init: function () {
-            skillItems = $('.c-skill__circle_outer');
-            console.log(skillItems);
-            if (skillItems.length === 0)
+            skillGroups = $('.c-skills__group');
+            console.log(skillGroups);
+            if (skillGroups.length === 0) {
                 return;
-            console.log('skillItems');
-            skillItems.each(function (i, skill) {
-                skill.value = $(skill).attr('stroke-dasharray');
-                $(skill).attr('stroke-dasharray', '0 100');
+            }
+            skillGroups.each(function (i, skillGroup) {
+                var skillItems = $(skillGroup).find('.c-skill__circle_outer');
+                skillItems.each(function (i, skill) {
+                    skill.value = $(skill).attr('stroke-dashoffset');
+                    $(skill).attr('stroke-dashoffset', '100');
+                });
             });
         },
-        setValue: function () {
-            if (skillItems.length === 0)
+        grow: function (wScroll) {
+            if (skillGroups.length === 0)
                 return;
-            skillItems.each(function (i, skill) {
-                var value = skill.value;
-                var skillOpacity = value.substring(0, value.length - 4) / 100 + 0.1;
-                if (skillOpacity >= 1) {
-                    skillOpacity = 1
+            var windowMargin = window.innerHeight * 0.9;
+            skillGroups.each(function (i, skillGroup) {
+                var groupOffset = skillGroup.getBoundingClientRect().top;
+                console.log('wScroll:' + wScroll);
+                console.log('windowMargin:' + windowMargin);
+                console.log('groupOffset:' + groupOffset);
+                //var startAnimate = wScroll - groupOffset + windowMargin;
+                var startAnimate = -groupOffset + windowMargin;
+                console.log('startAnimate:' + startAnimate);
+                var pixelsElapsed = groupOffset - wScroll;
+                var percentsElapsed = 100 - Math.ceil(pixelsElapsed / windowMargin * 100);
+                // 100/100 because we have 100 dasharray. It can be different!
+                var percentsDrawn = 100 / 100 * percentsElapsed;
+                var skillItems = $(skillGroup).find('.c-skill__circle_outer');
+                if (startAnimate >= 0) {
+                    var drawAmount = 100 - percentsDrawn;
+                    skillItems.each(function (i, skill) {
+                        var value = 100 - parseInt(skill.value);
+                        var skillOpacity = value / 200 + 0.6;
+                        if (skillOpacity >= 1) {
+                            skillOpacity = 1
+                        }
+                        skill.setAttribute('stroke-dashoffset', skill.value);
+                        $(skill).css('opacity', skillOpacity);
+                    });
+                } else {
+                    skillItems.each(function (i, skill) {
+                        skill.setAttribute('stroke-dashoffset', '100');
+                    });
                 }
-                console.log(skillOpacity);
-                skill.setAttribute('stroke-dasharray', skill.value);
-                $(skill).css('opacity', skillOpacity);
             });
         }
     };
@@ -205,32 +285,6 @@ function initMap() {
 }
 
 // slider initialization
-var works = {
-    work1: {
-        link: './assets/img/work-1.png',
-        title: 'сайт школы онлайн образования',
-        skills: 'HTML, CSS, JavaScript',
-        site: 'https://loftschool.com/'
-    },
-    work2: {
-        link: './assets/img/work-2.png',
-        title: 'сайт агенства интернет решений',
-        skills: 'node.js, mongodb, angular',
-        site: 'https://itloft.ru/'
-    },
-    work3: {
-        link: './assets/img/work-3.png',
-        title: 'сайт портала обучающих уроков',
-        skills: 'php, laravel',
-        site: 'https://loftblog.ru/'
-    },
-    work4: {
-        link: './assets/img/work-4.png',
-        title: 'сайт "атма йога"',
-        skills: 'UX/UI Design, SEO',
-        site: 'http://atmayoga.ru/'
-    }
-}
 
 // for slider
 var removeActiveClass = (function (reqClass) {
@@ -241,63 +295,34 @@ var changeDescription = (function (description, index) {
     var sliderTitle = description.find('.c-slider-title'),
         sliderSkills = description.find('.c-slider-item__skills'),
         sliderLink = description.find('.c-slider-btn');
-    var worksArray = $.map(works, function (el) {
-        return el
+    var data ={}
+    sendGetAjaxJson('api/works', data, function (data) {
+        // var jsonObject = JSON.parse(data);
+        //
+        console.log(data);
+        var worksArray = $.map(data, function (el) {
+            return el
+        });
+        console.log(worksArray);
+        sliderTitle.css('opacity', '0');
+        setTimeout(function () {
+            sliderTitle.text(worksArray[index].name);
+            sliderTitle.css('opacity', '1');
+        }, 400);
+        sliderSkills.css('opacity', '0');
+        setTimeout(function () {
+            sliderSkills.text(worksArray[index].technologies);
+            sliderSkills.css('opacity', '1');
+        }, 400);
+        sliderLink.attr('href', (worksArray[index].link));
+        console.log(worksArray[index].title);
+        console.log(index);
     });
-    sliderTitle.css('opacity', '0');
-    setTimeout(function () {
-        sliderTitle.text(worksArray[index].title);
-        sliderTitle.css('opacity', '1');
-    }, 400);
-    sliderSkills.css('opacity', '0');
-    setTimeout(function () {
-        sliderSkills.text(worksArray[index].skills);
-        sliderSkills.css('opacity', '1');
-    }, 400);
-    sliderLink.attr('href', (worksArray[index].site));
-    console.log(worksArray);
-
 });
-
-var slider = (function () {
-    return {
-        init: function () {
-            var slider = $('.c-slider');
-            console.log(slider);
-            if (slider.length == 0) {
-                return null;
-            }
-            var slides = slider.find('.c-slider__slides');
-            var title = slider.find('.c-slider-title');
-            var skills = slider.find('.c-slider-item__skills');
-            var siteLink = slider.find('.c-slider-btn');
-            var pagerList = slider.find('.c-pager__list');
-            $.each(works, function (index, work) {
-                slides.append(
-                    $('<li>').addClass('c-slides__item').append(
-                        $('<img>').addClass('c-slider-img').attr('src', work.link)
-                    )
-                );
-                pagerList.append(
-                    $('<li>').addClass('c-pager__item').append(
-                        $($('<svg><circle cx="5" cy="5" r="5"/></svg>'))
-                            .addClass('c-pager__symbol').attr('viewBox', '0 0 10 10')
-                    )
-                );
-            });
-            // set active values
-            slides.find('.c-slides__item').first().addClass('active');
-            pagerList.find('.c-pager__item').first().addClass('active');
-            title.text(works.work1.title);
-            skills.text(works.work1.skills);
-            siteLink.attr('href', works.work1.site);
-        }
-    };
-})();
 
 $(document).ready(function () {
     console.log('document.ready');
-    slider.init();
+    //slider.init();
     parallax.init();
     skills.init();
     // preloader
@@ -366,14 +391,15 @@ $(document).ready(function () {
             var duration = 600;
             flipper.toggleClass('l-flipper_back');
             if (flipper.hasClass('l-flipper_back')) {
-                trigger.fadeOut(duration);
+                trigger.removeClass('active');
             } else {
-                trigger.fadeIn(duration);
+                trigger.addClass('active');
             }
         });
         // parallax
         var layerAll = $('.l-parallax__bg');
         var clouds = $('.c-stars-parallax__layer');
+
         $(window).on('mousemove', function (e) {
             var mouseX = e.pageX;
             var mouseY = e.pageY;
@@ -394,6 +420,7 @@ $(document).ready(function () {
                 });
             });
         });
+
     })();
 
 
@@ -539,7 +566,7 @@ $(document).ready(function () {
         function checkSection() {
             articleAll.each(function (i, item) {
                 var article = $(item);
-                var topEdge = article.offset().top - 300;
+                var topEdge = article.offset().top - 350;
                 var bottomEdge = topEdge + article.height();
                 var topScroll = $(window).scrollTop();
                 if (topEdge < topScroll && bottomEdge > topScroll) {
@@ -597,6 +624,232 @@ $(document).ready(function () {
         });
     })();
 
+// ADMIN TABS
+    // tabs manager
+    $('.c-tabs__item').on('click', function (e) {
+        e.preventDefault();
+        var
+            $this = $(this),
+            index = $this.index(),
+            adminSection = $(this).closest('.l-admin'),
+            //tabs = adminSection.find('.c-tabs__item'),
+            contents = adminSection.find('.c-content-panel__item'),
+            contentToShow = contents.eq(index)
+
+            ;
+        if (!$this.hasClass('active')) {
+            $this.addClass('active').siblings().removeClass('active');
+            contentToShow.addClass('active').siblings().removeClass('active');
+        }
+    });
+    // Upload trigger
+    $('#uploadfile').on('click', function (e) {
+        e.preventDefault();
+        $("#file").trigger('click');
+    });
+
+
+    function fileUpload(url, data, cb) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.onload = function (e) {
+            var result = JSON.parse(xhr.responseText);
+            cb(result.status);
+        };
+        xhr.send(data);
+    }
+
+    // Upload work
+    const worksForm = $('#admin-works');
+
+    if (worksForm) {
+        worksForm.on('submit', prepareSendFile);
+    }
+
+    function prepareSendFile(e) {
+        e.preventDefault();
+        var form = $(this);
+        var popup = $('.l-admin__popup');
+        var resultContainer = popup.find('.l-admin__status');
+        var formData = new FormData();
+        var file = $('#file').get(0).files[0];
+        var name = $('#name').val();
+        var technologies = $('#technologies').val();
+        var link = $('#link').val();
+        formData.append('image', file, file.name);
+        formData.append('name', name);
+        formData.append('technologies', technologies);
+        formData.append('link', link);
+        console.log(resultContainer);
+        resultContainer.text('Uploading...');
+        popup.delay(200).fadeIn(1000);
+        fileUpload('/admin/works', formData, function (data) {
+            console.log(data);
+            resultContainer.text(data);
+            popup.fadeOut(1000);
+            form[0].reset();
+        });
+    }
+
+    // Blog Form
+    var blogForm = document.querySelector('#admin-blog');
+
+    if (blogForm) {
+        blogForm.addEventListener('submit', prepareSendPost);
+    }
+
+    function prepareSendPost(e) {
+        e.preventDefault();
+        var form = $(this);
+        var popup = $('.l-admin__popup');
+        var resultContainer = popup.find('.l-admin__status');
+        var data = {
+            title: blogForm.title.value,
+            date: blogForm.date.value,
+            content: blogForm.content.value
+        };
+        resultContainer.text('Saving data...');
+        popup.delay(200).fadeIn(1000);
+        sendAjaxJson('/admin/blog', data, function (data) {
+            console.log(data);
+            resultContainer.text(data);
+            popup.fadeOut(1000);
+            form[0].reset();
+        });
+    }
+
+    // Skills form
+
+    var skillsForm = document.querySelector('#admin-skills');
+
+    if (skillsForm) {
+        skillsForm.addEventListener('submit', prepareSendSkills);
+    }
+
+    function prepareSendSkills(e) {
+        e.preventDefault();
+        var popup = $('.l-admin__popup');
+        var resultContainer = popup.find('.l-admin__status');
+        var skills = $('.c-admin-skills');
+        var skillGroups = skills.find('.c-admin-skills__group');
+        var data = {};
+
+        skillGroups.each(function () {
+
+            var skillGroup = $(this);
+            var groupTitle = skillGroup.find('.c-admin-group__title').text();
+            var items = skillGroup.find('.c-admin-skill');
+            var itemObj = {};
+
+            items.each(function () {
+                var item = $(this);
+                var skillName = item.find('.c-admin-skill__title').text();
+                var skillValue = item.find('.c-admin-form__input_skills').val();
+
+                itemObj[skillName] = skillValue;
+            });
+            data[groupTitle] = itemObj;
+
+        });
+
+        resultContainer.text('Saving data...');
+        popup.delay(200).fadeIn(1000);
+        console.log(data);
+        sendAjaxJson('/admin/about', data, function (data) {
+            console.log(data);
+            resultContainer.text(data);
+            popup.fadeOut(1000);
+        });
+    }
+
+    // Auth form
+
+    // Checkbox
+    var checkbox = document.querySelector('.c-checkbox__input');
+
+    if (checkbox) {
+        checkbox.addEventListener('change', function () {
+            $(this).removeClass('field_error').removeClass('field_ok');
+        });
+    }
+
+    var authForm = document.querySelector('#auth-form');
+
+    if (authForm) {
+        authForm.addEventListener('submit', prepareSendAuth);
+    }
+
+    function prepareSendAuth(e) {
+        e.preventDefault();
+        var popup = $('.l-section__popup');
+        var resultContainer = popup.find('.l-section__status');
+        var form = $(this);
+        var validationInfo = validateAuth(form);
+        if (!validationInfo.isValidated) {
+            console.log(validationInfo.errors);
+            popup.delay(200).fadeIn(1000);
+            $(validationInfo.errors).each(function (i, err) {
+                console.log(err);
+                resultContainer.text(err);
+            });
+            popup.fadeOut(1000);
+            return;
+        }
+        var data = {
+            username: authForm.username.value,
+            password: authForm.password.value,
+        };
+        resultContainer.text('Проверка данных...');
+        popup.delay(200).fadeIn(1000);
+
+        sendAjaxJson('/admin', data, function (data) {
+            console.log(data);
+            resultContainer.text(data);
+            popup.fadeOut(1000);
+            console.log(data.redirect);
+            if (data == 'Авторизация успешна!')
+                window.location = '/admin';
+        });
+    }
+
+    function validateAuth(form) {
+        var inputs = form.find('[required]');
+        var isValidated = true;
+        var errors = [];
+        var flag1 = false;
+        var flag2 = false;
+        inputs.removeClass('field--error');
+        inputs.each(function (i, item) {
+            var input = $(item);
+            var value = input.val();
+            var type = input.attr('type');
+            if (type == 'checkbox') {
+                if (!input.is(':checked')) {
+
+                    input.addClass('field_error');
+                    isValidated = false;
+                    if (!flag1)
+                        errors.push('Вы точно не робот?');
+                    flag1 = true;
+                }
+            } else if (value.trim() == '') {
+                input.addClass('field_error');
+                isValidated = false;
+                if (!flag2)
+                    errors.push('Вы забыли ввести данные');
+                flag2 = true;
+            } else {
+                input.removeClass('field_error').addClass('field_ok');
+            }
+
+        });
+        return {
+            "isValidated": isValidated,
+            "errors": errors
+        };
+    }
+
+
 });
 
 // Events
@@ -607,7 +860,15 @@ $(window).on('load', function () {
 window.onscroll = function () {
     var winScroll = window.pageYOffset;
     parallax.init(winScroll);
-    if (winScroll > innerHeight / 1.8) {
-        skills.setValue();
-    }
+    //if (winScroll > innerHeight / 1.8) {
+    skills.grow(winScroll);
+    //}
 };
+
+$(document).on('focus', '.c-form__input', function (e) {
+    $(this).removeClass('field_error').removeClass('field_ok');
+});
+
+$(document).on('reset', '.c-form', function (e) {
+    $(this).find('.c-form__input').removeClass('field_error').removeClass('field_ok');
+});

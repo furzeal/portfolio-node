@@ -1,0 +1,18 @@
+{
+  "upload": "public/upload",
+  "mail": {
+    "subject": "Сообщение с сайта-портфолио",
+    "user": "portfolio.shatalov@gmail.com",
+    "pass": "secretpass"
+  },
+  "db": {
+    "host": "localhost",
+    "port": "27017",
+    "name": "portfolio",
+    "user": "",
+    "password": ""
+  },
+  "connection": {
+    "string": "mongodb://admin:cmws70943khaso@ds119368.mlab.com:19368/portfolio"
+  }
+}

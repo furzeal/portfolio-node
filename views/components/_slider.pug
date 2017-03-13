@@ -1,0 +1,35 @@
+include ../mixins/_svg
+
+.c-slider
+    .c-slider__view
+        ul.c-slider__slides
+            each work, index in works
+                -
+                    var className = ''
+                    if (index == '0')
+                    className='c-slides__item active'
+                    else
+                    className='c-slides__item'
+                li(class = className)
+                    img.c-slider-img(src=`${work.image}`)
+    .c-slider__description
+        .c-description__wrapper
+            .c-slider-title.c-block-title.c-block-title_left #{works[0].name}
+            .c-slider-item__skills #{works[0].technologies}
+            a.c-slider-btn(href=`${works[0].link}` target="_blank")
+                +svg('c-slider-btn__icon', `link`)
+                | Посмотреть работу
+    .c-pager
+        ul.c-pager__list
+            each work, index in works
+                -
+                    var className = ''
+                    if (index == '0')
+                    className='c-pager__item active'
+                    else
+                    className='c-pager__item'
+                li(class = className)
+                    svg.c-pager__symbol(viewBox='0 0 10 10')
+                        circle(cx='5' cy='5' r='5')
+    +svg('c-slider__button c-slider__button_prev', `arrow_down`)
+    +svg('c-slider__button c-slider__button_next', `arrow_down`)

@@ -219,3 +219,19 @@
   }
 }
 
+
+.l-section__popup {
+  position: fixed;
+  background: rgba(#fff,0.8);
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  display: none;
+}
+
+.l-section__status {
+  padding: 30px;
+}

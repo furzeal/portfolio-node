@@ -1,0 +1,31 @@
+section.l-section.l-about(id="section2")
+    .l-about__col.l-about__col_left
+        svg(viewBox="0 0 1000 110" preserveAspectRatio="none").c-section__triangle.c-section__triangle_about.c-section__triangle_color_beiger
+            polygon(points="0,0 1000,110 0,110")
+        .l-about__content.l-about__content_left
+            .c-section-title-container
+                svg(class='c-section-title-bg')
+                    use(xlink:href=`#stars2`)
+                .c-section-title обо мне
+            .c-about
+                img.c-about__pic(src="./assets/img/user-photo.jpg")
+                .c-block-title кто я
+                .c-block-text
+                    p.
+                        Я веб разработчик из Москвы.
+                        Мне 34 года. Занимаюсь разработкой современных сайтов и приложений.
+                        Мне нравится делать интересные и современные проекты.
+                    p.
+                        Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                        Чуть позже я освежу в нём свой контент.
+                        А пока посмотрите, как тут всё классно и красиво!
+    .l-about__col.l-about__col_right
+        svg(viewBox="0 0 1000 110" preserveAspectRatio="none").c-section__triangle.c-section__triangle_about.c-section__triangle_right.c-section__triangle_color_bg-white
+            polygon(points="0,110 1000,110 1000,0")
+        .l-about__content.l-about__content_right
+            .c-block-title чем я могу быть вам полезен
+            .c-block-text
+                p.
+                    Больше всего меня привлекет Backend разработка,
+                    но я также знаком и могу решать не сложные задачи на Frontend.
+            include _skills

@@ -1,28 +1,28 @@
-$transDelay: 0.3s;
+//$transDelay: 0.3s;
 
 .c-skills {
   margin-top: 50px;
-  & :nth-child(4) {
-    .c-skill__circle {
-      &_outer {
-        transition-delay: $transDelay;
-      }
-    }
-  }
-  & :nth-child(6) {
-    .c-skill__circle {
-      &_outer {
-        transition-delay: 2*$transDelay;
-      }
-    }
-  }
-  & :nth-child(8) {
-    .c-skill__circle {
-      &_outer {
-        transition-delay: 3*$transDelay;
-      }
-    }
-  }
+  //& :nth-child(4) {
+  //  .c-skill__circle {
+  //    &_outer {
+  //      transition-delay: $transDelay;
+  //    }
+  //  }
+  //}
+  //& :nth-child(6) {
+  //  .c-skill__circle {
+  //    &_outer {
+  //      transition-delay: 2*$transDelay;
+  //    }
+  //  }
+  //}
+  //& :nth-child(8) {
+  //  .c-skill__circle {
+  //    &_outer {
+  //      transition-delay: 3*$transDelay;
+  //    }
+  //  }
+  //}
 }
 
 .c-skills-group__item {
