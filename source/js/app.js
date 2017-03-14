@@ -73,7 +73,7 @@ var parallax = (function () {
                 return;
             }
             console.log($(window).innerWidth());
-            if ($(window).innerWidth()>768) {
+            if ($(window).innerWidth() > 768) {
                 this.move(bg, winScroll, 100);
                 this.move(user, -winScroll, 9);
                 this.move(userBg, -winScroll, 13);
@@ -295,7 +295,7 @@ var changeDescription = (function (description, index) {
     var sliderTitle = description.find('.c-slider-title'),
         sliderSkills = description.find('.c-slider-item__skills'),
         sliderLink = description.find('.c-slider-btn');
-    var data ={}
+    var data = {}
     sendGetAjaxJson('api/works', data, function (data) {
         // var jsonObject = JSON.parse(data);
         //
@@ -532,13 +532,16 @@ $(document).ready(function () {
         //var containerBottom = container.offset().top + container.height() - 40;
         var edgeTop = sidebar.offset().top;
         //var sidebarHeight = sidebar.height();
-        $(window).on('scroll', function () {
-            if (edgeTop < $(window).scrollTop()) {
-                sidebar.addClass('c-blog-sidebar_fixed');
-            } else {
-                sidebar.removeClass('c-blog-sidebar_fixed');
-            }
-        });
+        console.log($(window).innerWidth);
+        if ($(window).innerWidth() > 768) {
+            $(window).on('scroll', function () {
+                if (edgeTop < $(window).scrollTop()) {
+                    sidebar.addClass('c-blog-sidebar_fixed');
+                } else {
+                    sidebar.removeClass('c-blog-sidebar_fixed');
+                }
+            });
+        }
     })();
 
     (function () {
@@ -566,8 +569,8 @@ $(document).ready(function () {
         function checkSection() {
             articleAll.each(function (i, item) {
                 var article = $(item);
-                var topEdge = article.offset().top - 0.55*$(window).innerHeight();
-                console.log($(window).innerHeight);
+                var topEdge = article.offset().top - 0.55 * $(window).innerHeight();
+
                 var bottomEdge = topEdge + article.height();
                 var topScroll = $(window).scrollTop();
                 if (topEdge < topScroll && bottomEdge > topScroll) {
