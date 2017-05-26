@@ -79,5 +79,5 @@ server.on('listening', function () {
     if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir);
     }
-    console.log('Express server started on port %s at %s', server.address().port);
+    console.log('Express server started on port %s at %s', server.address().port,server.address().address);
 });
