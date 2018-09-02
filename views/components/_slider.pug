@@ -16,9 +16,9 @@ include ../mixins/_svg
         .c-description__wrapper
             .c-slider-title.c-block-title.c-block-title_left #{works[0].name}
             .c-slider-item__skills #{works[0].technologies}
-            a.c-slider-btn(href=`${works[0].link}` target="_blank")
-                +svg('c-slider-btn__icon', `link`)
-                | Посмотреть работу
+            //a.c-slider-btn(href=`${works[0].link}` target="_blank")
+            //    +svg('c-slider-btn__icon', `link`)
+            //    | Посмотреть работу
     .c-pager
         ul.c-pager__list
             each work, index in works

@@ -20,10 +20,11 @@ let Model = mongoose.model('skill');
 let item = new Model({
     group: "Frontend",
     items: [
-        {name: "Html", value: 80},
-        {name: "CSS", value: 50},
-        {name: "JavaScript & jQuery", value: 50},
-        {name: "WPF", value: 45},
+        {name: "Html", value: 70},
+        {name: "CSS", value: 55},
+        {name: "JS(ES6+)", value: 60},
+        {name: "React/Redux", value: 40},
+        {name: "WPF", value: 65},
     ]
 
 });
@@ -43,12 +44,13 @@ item.save().then(
 item = new Model({
     group: "Backend",
     items: [
-        {name: "PHP & Laravel", value: 50},
-        {name: "mySQL", value: 50},
-        {name: "Node.js & npm", value: 20},
-        {name: "Mongo.db", value: 40},
-        {name: "C#", value: 60},
-        {name: "SQL Server", value: 40},
+        {name: "C#", value: 75},
+        {name: "ASP.NET Core", value: 45},
+        {name: "EF Core", value: 40},
+        {name: "SQL", value: 50},
+        {name: "MongoDB", value: 40},
+        {name: "RESTful API", value: 65},
+        {name: "PHP & Laravel", value: 40},
     ]
 });
 
@@ -63,14 +65,13 @@ item.save().then(
             .join(', ');
     });
 
-
 item = new Model({
     group: "Workflow",
     items: [
         {name: "Git", value: 70},
-        {name: "Gulp", value: 70},
-        {name: "Webpack", value: 20},
-        {name: "Artisan", value: 50},
+        {name: "Gulp", value: 55},
+        {name: "Webpack", value: 60},
+        {name: "NuGet", value: 80},
     ]
 });
 

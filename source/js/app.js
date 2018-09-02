@@ -359,6 +359,7 @@ $(document).ready(function () {
                     percentsTotal++;
                 },
                 error: function () {
+                    setPercents(imgs.length, percentsTotal);
                     percentsTotal++;
                 }
             });
